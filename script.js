@@ -1,4 +1,9 @@
+
 //Function that gets the computer choice
+const rockButton = document.getElementById("rock")
+const paperButton = document.getElementById("paper")
+const scissorsButton = document.getElementById("scissors")
+const playerSelection = document.getElementById("player-selection")
 
 function getComputerChoice() {
     let compChoice = Math.floor(Math.random() * 3)
@@ -13,6 +18,24 @@ function getComputerChoice() {
     }
 }
 
+// Event listeners that handle clicks
+rockButton.addEventListener('click', function() {
+    playRound("rock", getComputerChoice())
+
+})
+
+paperButton.addEventListener('click', function() {
+    playRound("paper", getComputerChoice())
+
+})
+
+scissorsButton.addEventListener('click', function() {
+    playRound("scissors", getComputerChoice())
+})
+
+
+
+
 // Function that gets the player choice
 
 function getHumanChoice() {
@@ -25,6 +48,7 @@ function getHumanChoice() {
 let humanScore = 0
 let computerScore = 0
 let roundsPlayed = 1
+
 
 //Function that generates the logic to play one round
 
@@ -48,27 +72,28 @@ console.log(`rounds played ${roundsPlayed}, player score: ${humanScore}, compute
 
 //Function that plays the game with 5 rounds
 
-function playGame() {
-    if (roundsPlayed < 6){
-        let humanSelection = getHumanChoice()
-        let computerSelection = getComputerChoice()
-        if (humanSelection !== "rock" && humanSelection !== "paper" && humanSelection !== "scissors" || humanSelection == "")
-            console.log(`Please type rock, paper, or scissors, ${humanSelection} is not an option`)
-        else {playRound(humanSelection, computerSelection);
-        roundsPlayed++;
-        }
-            
-    }
-    else {
-        console.log("Game Over")
-        humanScore = 0
-        computerScore = 0
-        roundsPlayed = 0
-    }
+// function playGame() {
+//     if (roundsPlayed < 6){
+//         let humanSelection = getHumanChoice()
+//         let computerSelection = getComputerChoice()
+//         if (humanSelection !== "rock" && humanSelection !== "paper" && humanSelection !== "scissors" || humanSelection == "")
+//             console.log(`Please type rock, paper, or scissors, ${humanSelection} is not an option`)
+//         else {
+//             playRound(humanSelection, computerSelection);
+//             roundsPlayed++;
+//         }       
+//     }
+//     else {
+//         console.log("Game Over")
+//         humanScore = 0
+//         computerScore = 0
+//         roundsPlayed = 0
+//     }
     
-    playGame()
-}
+//     playGame()
+//}
 
 //Calling the play game function to initiate the game
 
-playGame()
+//playGame()
+
